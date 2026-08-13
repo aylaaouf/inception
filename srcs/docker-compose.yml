@@ -1,0 +1,38 @@
+services:
+  wordpress:
+    build: ./requirements/wordpress
+    env_file:
+      - .env
+    container_name: wordpress
+    volumes:
+      - wordpress_data:/var/www/html
+    networks:
+      - docker-network
+
+  nginx:
+    build: ./requirements/nginx
+    container_name: nginx
+    ports:
+      - "443:443"
+    volumes:
+      - wordpress_data:/var/www/html
+    networks:
+      - docker-network
+
+  mariadb:
+    build: ./requirements/mariadb
+    container_name: mariadb
+    env_file:
+      - .env
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - docker-network
+
+volumes:
+  db_data:
+  wordpress_data:
+
+networks:
+  docker-network:
+    driver: bridge

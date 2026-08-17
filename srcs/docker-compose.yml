@@ -8,7 +8,7 @@ services:
     volumes:
       - wordpress_data:/var/www/html
     networks:
-      - docker-network
+      - inception
 
   nginx:
     build: ./requirements/nginx
@@ -19,7 +19,7 @@ services:
     volumes:
       - wordpress_data:/var/www/html
     networks:
-      - docker-network
+      - inception
 
   mariadb:
     build: ./requirements/mariadb
@@ -30,7 +30,7 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     networks:
-      - docker-network
+      - inception
 
 volumes:
   db_data:
@@ -47,5 +47,5 @@ volumes:
       device: /home/aylaaouf/data/wordpress_data
 
 networks:
-  docker-network:
+  inception:
     driver: bridge

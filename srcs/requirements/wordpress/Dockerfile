@@ -12,6 +12,7 @@ RUN apt-get update && \
         php-zip \
         curl \
         mariadb-client \
+        php-redis \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 

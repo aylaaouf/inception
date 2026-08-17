@@ -10,6 +10,13 @@ services:
     networks:
       - inception
 
+  redis:
+    build: ./requirements/bonus/redis
+    container_name: redis
+    restart: unless-stopped
+    networks:
+      - inception
+
   nginx:
     build: ./requirements/nginx
     container_name: nginx

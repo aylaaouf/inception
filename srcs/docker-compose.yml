@@ -17,6 +17,20 @@ services:
     networks:
       - inception
 
+  ftp:
+    build: ./requirements/bonus/ftp
+    container_name: ftp
+    restart: unless-stopped
+    ports:
+      - "21:21"
+      - "40000-50000:40000-50000"
+    env_file:
+      - .env
+    volumes:
+      - wordpress_data:/home/ftpuser
+    networks:
+      - inception
+
   nginx:
     build: ./requirements/nginx
     container_name: nginx

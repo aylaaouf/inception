@@ -1,4 +1,4 @@
-FROM ubuntu:stable
+FROM debian:stable
 
 RUN apt-get update && \
     apt-get install vsftpd -y && \
@@ -10,6 +10,6 @@ COPY ./tools/setup_ftp.sh /usr/local/bin/setup_ftp.sh
 
 RUN chmod +x /usr/local/bin/setup_ftp.sh
 
-EXPOSE 21 40000-50000
+EXPOSE 21 40000-40010
 
 ENTRYPOINT ["/usr/local/bin/setup_ftp.sh"]

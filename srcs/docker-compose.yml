@@ -23,7 +23,7 @@ services:
     restart: unless-stopped
     ports:
       - "21:21"
-      - "40000-50000:40000-50000"
+      - "40000-40010:40000-40010"
     env_file:
       - .env
     volumes:

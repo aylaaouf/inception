@@ -27,7 +27,7 @@ fi
 
 if ! wp core is-installed --allow-root; then
     wp core install \
-        --url="https://aylaaouf.42.fr" \
+        --url="https://${DOMAIN_NAME}" \
         --title="Inception" \
         --admin_user="${WP_ADMIN_USER}" \
         --admin_password="${WP_ADMIN_PASSWORD}" \
@@ -51,4 +51,4 @@ wp plugin activate redis-cache --allow-root
 
 wp redis enable --allow-root
 
-exec php-fpm8.4 -F
+exec php-fpm8.2 -F

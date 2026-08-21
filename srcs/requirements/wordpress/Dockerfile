@@ -1,4 +1,4 @@
-FROM debian:stable
+FROM debian:bookworm
 
 RUN apt-get update && \
     apt-get install -y \
@@ -26,6 +26,6 @@ RUN chmod +x /usr/local/bin/setup_wordpress.sh
 
 EXPOSE 9000
 
-RUN sed -i 's|^listen = .*|listen = 0.0.0.0:9000|' /etc/php/8.4/fpm/pool.d/www.conf
+RUN sed -i 's|^listen = .*|listen = 0.0.0.0:9000|' /etc/php/8.2/fpm/pool.d/www.conf
 
 ENTRYPOINT ["/usr/local/bin/setup_wordpress.sh"]

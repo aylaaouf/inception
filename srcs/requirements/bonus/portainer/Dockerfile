@@ -1,10 +1,11 @@
-FROM debian:stable
+FROM debian:bookworm
 
 RUN apt-get update && \
     apt-get install -y \
         curl \
         ca-certificates \
-        tar && \
+        tar \
+        apache2-utils && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt

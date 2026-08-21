@@ -1,0 +1,4 @@
+secrets/*
+!secrets/.gitkeep
+srcs/.env
+data/
